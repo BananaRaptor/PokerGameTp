@@ -1,2 +1,2 @@
-![alt text](https://lh3.googleusercontent.com/proxy/3yvkh-nhGARXBIIZp19VUdsbzb453Z2gfX3_56kLUKQPfPXCq0TvKXXyG2s9FPDhT6-CmBJPONGS1x3e-iLLVhl5vA0GLQ
+![alt text](https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555439209/shape/mentalfloss/345eyrhfj.png?itok=WBbnAek5
 )
