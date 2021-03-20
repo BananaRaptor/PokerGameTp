@@ -13,6 +13,10 @@ public class TexasPokerGame extends PokerGame {
         super.MinNumberOfPlayer = 2;
         super.MaxNumberOfPlayer = 9;
         super.startPokerGame();
+    }
+
+    @Override
+    protected void mainGameLogic() {
         CreateDeck();
         CreatePlayers();
         PassCard();
@@ -21,8 +25,8 @@ public class TexasPokerGame extends PokerGame {
         River();
         PrintAllCard();
         FindWinner();
-
     }
+
 
     private void PrintAllCard() {
         for (Player player: super.players) {

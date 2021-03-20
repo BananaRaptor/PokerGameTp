@@ -4,6 +4,9 @@ import Cards.Card;
 import Deck.DeckContext;
 import Player.Player;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -20,7 +23,24 @@ public abstract class PokerGame {
 
     public void startPokerGame(){
         askForForNumberOfPlayer();
+        boolean isPlaying = true;
+        while (isPlaying) {
+            mainGameLogic();
+            try {
+                isPlaying = askPlayerToContinue();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
+
+    protected boolean askPlayerToContinue() throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Voulez quitter (Exit) ou rester à ce type de jeu (Stay)");
+        return !reader.readLine().equals("Exit");
+    }
+
+    protected abstract void mainGameLogic();
 
 
     private void askForForNumberOfPlayer(){
