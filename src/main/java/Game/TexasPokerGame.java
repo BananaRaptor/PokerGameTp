@@ -28,7 +28,7 @@ public class TexasPokerGame extends PokerGame {
     }
 
 
-    private void PrintAllCard() {
+    protected void PrintAllCard() {
         for (Player player: super.players) {
             player.evaluateScore(super.dealerHand);
         }
@@ -52,7 +52,7 @@ public class TexasPokerGame extends PokerGame {
         }
     }
 
-    private void FindWinner() {
+    protected void FindWinner() {
         Player winner = super.players.get(0);
         for (Player player: super.players) {
             if (player.getScore().getResult() > winner.getScore().getResult()){
@@ -66,22 +66,22 @@ public class TexasPokerGame extends PokerGame {
         }
     }
 
-    private void Flop() {
+    protected void Flop() {
         deck.burnCards();
         super.dealerHand.add(deck.getRandomCard());
         super.dealerHand.add(deck.getRandomCard());
         super.dealerHand.add(deck.getRandomCard());
     }
-    private void Turn() {
+    protected void Turn() {
         deck.burnCards();
         super.dealerHand.add(deck.getRandomCard());
     }
-    private void River() {
+    protected void River() {
         deck.burnCards();
         super.dealerHand.add(deck.getRandomCard());
     }
 
-    private void PassCard() {
+    protected void PassCard() {
         for (int i = 0; i < super.numberOfPlayer; i++) {
             super.players.get(i).addCard(deck.getRandomCard());
         }
@@ -90,14 +90,14 @@ public class TexasPokerGame extends PokerGame {
         }
     }
 
-    private void CreatePlayers() {
+    protected void CreatePlayers() {
         super.players.add(new HumanPlayer());
         for (int i = 0; i < super.numberOfPlayer-1; i++) {
             super.players.add(new AiPlayer());
         }
     }
 
-    private void CreateDeck() {
+    protected void CreateDeck() {
         deck = new DeckContext(new TexasDeck());
         deck.addCards();
         deck.shuffleCards();

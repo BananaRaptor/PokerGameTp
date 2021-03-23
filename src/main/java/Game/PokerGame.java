@@ -42,6 +42,22 @@ public abstract class PokerGame {
 
     protected abstract void mainGameLogic();
 
+    protected abstract void PrintAllCard() ;
+
+    protected abstract void FindWinner();
+
+    protected abstract void Flop();
+
+    protected abstract void Turn();
+
+    protected abstract void River();
+
+    protected abstract void PassCard() ;
+
+    protected abstract void CreatePlayers() ;
+
+    protected abstract void CreateDeck() ;
+
 
     private void askForForNumberOfPlayer(){
         Scanner myInput = new Scanner( System.in );
