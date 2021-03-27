@@ -100,6 +100,36 @@ public class EvaluatorTest {
     }
 
     @Test
+    public void straightPairTest(){
+        ArrayList<Card> straight = new ArrayList<>();
+        straight.add(new Card(2,"Spade","2 de trefle"));
+        straight.add(new Card(2,"Diamonds","2 de carreau"));
+        straight.add(new Card(3,"Heart","3 de coeur"));
+        straight.add(new Card(4,"club","4 de trefle"));
+        straight.add(new Card(5,"spade","5 de pique"));
+        straight.add(new Card(6,"Diamonds","6 de coeur"));
+        straight.add(new Card(13,"Diamonds","roi de carreau"));
+        WinCondition expectedResult = new WinCondition("Quinte",1206);
+        WinCondition actualResult = (new ChainOfEvaluator()).evaluate(straight);
+        assertEquals(expectedResult.getResult(), actualResult.getResult());
+    }
+
+    @Test
+    public void straightAceTest(){
+        ArrayList<Card> straight = new ArrayList<>();
+        straight.add(new Card(2,"Spade","2 de trefle"));
+        straight.add(new Card(3,"Heart","3 de coeur"));
+        straight.add(new Card(4,"club","4 de trefle"));
+        straight.add(new Card(6,"club","6 de trefle"));
+        straight.add(new Card(12,"spade","reine de pique"));
+        straight.add(new Card(13,"Diamonds","roi de coeur"));
+        straight.add(new Card(14,"Diamonds","arce de carreau"));
+        WinCondition expectedResult = new WinCondition("Quinte",1204);
+        WinCondition actualResult = (new ChainOfEvaluator()).evaluate(straight);
+        assertEquals(expectedResult.getResult(), actualResult.getResult());
+    }
+
+    @Test
     public void threeOfAKindTest(){
         ArrayList<Card> threeOfAKind = new ArrayList<>();
         threeOfAKind.add(new Card(2,"Diamonds","2 de carreau"));
